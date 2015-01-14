@@ -1,0 +1,55 @@
+/********
+ Imports
+********/
+@import "bourbon/bourbon";
+$visual-grid: true;
+@import "neat/neat";
+
+/**********
+Colors
+*********/
+$primary-color: #53a5d3;
+
+/**********
+  Layouts
+**********/
+
+$icon-banner-height: 100%;
+$icon-banner-width: 100%;
+
+/**********
+Components
+**********/
+$mobile: new-breakpoint(max-width 500px 12);
+$tablet: new-breakpoint(min-width 501px max-width 840px);
+
+.icon-banners{
+  @include outer-container;
+  color: $primary-color
+}
+
+.icon-banner{
+    @include span-columns(4);
+
+    @include media($tablet)
+    {
+      @include span-columns(12);
+      img, p{
+        @include span-columns(4);
+      }
+    }
+
+    @include media($mobile)
+    {
+      @include span-columns(10);
+      p{
+        text-align: justify;
+      }
+    }
+  }
+
+
+img{
+  height: $icon-banner-height;
+  width: $icon-banner-width;
+}
